@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "658280719618",
+    "project_id": "moj-notes-demo",
+    "storage_bucket": "moj-notes-demo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:658280719618:android:2ccb088e3fe18044630e1b",
+        "android_client_info": {
+          "package_name": "com.example.mynotesapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "658280719618-kcpf2ffm5u5deq6g4eohot9rss7bprco.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_IqyUM9Qr810PfNoasqjNIyDBeN68elk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "658280719618-kcpf2ffm5u5deq6g4eohot9rss7bprco.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "658280719618-snb46agk34a7acpb5tsc2ep91fvijdb5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mynotesapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
