@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_signin_button/button_view.dart';
+// import 'package:flutter_signin_button/button_view.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 
 class LandinView extends StatelessWidget {
@@ -12,7 +12,7 @@ class LandinView extends StatelessWidget {
         home: Scaffold(
             backgroundColor: Colors.teal,
             body: Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     gradient: LinearGradient(
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
@@ -34,7 +34,7 @@ class LandinView extends StatelessWidget {
                     padding: const EdgeInsets.fromLTRB(8, 90, 8, 120),
                     child: Container(
                       alignment: Alignment.center,
-                      child: Text(
+                      child: const Text(
                         'DIGITM',
                         style: TextStyle(
                           fontFamily: 'monospace',
@@ -45,16 +45,17 @@ class LandinView extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 230,
                     height: 2,
                     child: Divider(color: Colors.white24),
                   ),
                   Card(
                     color: Colors.transparent,
-                    margin: EdgeInsets.symmetric(vertical: 3, horizontal: 55),
+                    margin:
+                        const EdgeInsets.symmetric(vertical: 3, horizontal: 55),
                     child: Row(
-                      children: [
+                      children: const [
                         Icon(
                           Icons.email,
                           color: Color.fromARGB(90, 255, 255, 255),
@@ -71,16 +72,17 @@ class LandinView extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 230,
                     height: 2,
                     child: Divider(color: Colors.white24),
                   ),
                   Card(
                     color: Colors.transparent,
-                    margin: EdgeInsets.symmetric(vertical: 1, horizontal: 55),
+                    margin:
+                        const EdgeInsets.symmetric(vertical: 1, horizontal: 55),
                     child: Row(
-                      children: [
+                      children: const [
                         Icon(
                           Icons.password,
                           color: Color.fromARGB(90, 255, 255, 255),
@@ -97,15 +99,16 @@ class LandinView extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   Card(
                     color: Colors.lightBlue,
-                    margin: EdgeInsets.symmetric(vertical: 1, horizontal: 55),
+                    margin:
+                        const EdgeInsets.symmetric(vertical: 1, horizontal: 55),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
+                      children: const [
                         Icon(
                           Icons.lock,
                           color: Color.fromARGB(92, 255, 255, 255),
@@ -122,15 +125,16 @@ class LandinView extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   Card(
                     color: Colors.transparent,
-                    margin: EdgeInsets.symmetric(vertical: 1, horizontal: 55),
+                    margin:
+                        const EdgeInsets.symmetric(vertical: 1, horizontal: 55),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
+                      children: const [
                         SizedBox(
                           width: 11,
                         ),
@@ -147,11 +151,11 @@ class LandinView extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 23,
                   ),
                   Row(
-                    children: [
+                    children: const [
                       Expanded(
                           child: Divider(
                         color: Colors.white,
@@ -166,41 +170,35 @@ class LandinView extends StatelessWidget {
                       )),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                    children: const [
                       Text(
                         'Sign in with Social Networks',
                         style: TextStyle(color: Colors.white),
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
-                  Container(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SignInButton(
-                          Buttons.Facebook,
-                          onPressed: () {},
-                          mini: true,
-                          // text: 'Facebook',
-                        ),
-                        SizedBox(
-                          width: 2,
-                        ),
-                        SignInButton(Buttons.Google, onPressed: () {}),
-                        // Text(
-                        //   'Google',
-                        //   style: TextStyle(color: Colors.white60),
-                        // ),
-                      ],
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SignInButton(
+                        Buttons.Facebook,
+                        onPressed: () {},
+                        mini: true,
+                        // text: 'Facebook',
+                      ),
+                      const SizedBox(
+                        width: 2,
+                      ),
+                      SignInButton(Buttons.Google, onPressed: () {}),
+                    ],
                   ),
                 ])))));
   }
