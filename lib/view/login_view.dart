@@ -1,5 +1,7 @@
 // ignore_for_file: avoid_print
 
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -59,19 +61,21 @@ class _LoginViewState extends State<LoginView> {
               final email = _email.text;
               final password = _password.text;
               try {
-                final userCredential = await FirebaseAuth.instance
-                    .signInWithEmailAndPassword(
-                        email: email, password: password);
-                print(userCredential);
+                await FirebaseAuth.instance.signInWithEmailAndPassword(
+                    email: email, password: password);
+                Navigator.of(context).pushNamedAndRemoveUntil(
+                  '/notes/',
+                  (route) => false,
+                );
               } on FirebaseAuthException catch (e) {
                 if (e.code == 'invalid-email') {
-                  print('Enter a valid email');
+                  log('Enter a valid email');
                 } else if (e.code == 'user-not-found') {
-                  print('User not found');
+                  log('User not found');
                 } else if (e.code == 'wrong-password') {
-                  print('Wrong password ');
+                  log('Wrong password ');
                 } else {
-                  print(e.code);
+                  log(e.code);
                 }
               }
             },

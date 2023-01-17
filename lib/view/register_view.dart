@@ -1,6 +1,8 @@
 // import 'package:firebase_core/firebase_core.dart';
 // ignore_for_file: avoid_print
 
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 // import '../firebase_options.dart';
@@ -64,7 +66,7 @@ class _RegisterViewState extends State<RegisterView> {
                 final userCredential = await FirebaseAuth.instance
                     .createUserWithEmailAndPassword(
                         email: email, password: password);
-                print(userCredential);
+                log(userCredential.toString());
               } on FirebaseAuthException catch (e) {
                 print(e);
               }
@@ -74,7 +76,7 @@ class _RegisterViewState extends State<RegisterView> {
           TextButton(
             onPressed: (() {
               Navigator.of(context).pushNamedAndRemoveUntil(
-                '/login',
+                '/login/',
                 (route) => false,
               );
             }),
