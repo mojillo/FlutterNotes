@@ -1,10 +1,9 @@
 // ignore_for_file: avoid_print
 
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mynotesapp/constants/routes.dart';
+import '../utilities/show_error_dia.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -69,15 +68,27 @@ class _LoginViewState extends State<LoginView> {
                   (route) => false,
                 );
               } on FirebaseAuthException catch (e) {
-                if (e.code == 'invalid-email') {
-                  log('Enter a valid email');
-                } else if (e.code == 'user-not-found') {
-                  log('User not found');
+                if (e.code == 'user-not-found') {
+                  await showErrorDialog(
+                    context,
+                    'User Not Found',
+                  );
                 } else if (e.code == 'wrong-password') {
-                  log('Wrong password ');
+                  await showErrorDialog(
+                    context,
+                    'Wrong Credentials',
+                  );
                 } else {
-                  log(e.code);
+                  await showErrorDialog(
+                    context,
+                    'Error: ${e.code}',
+                  );
                 }
+              } catch (e) {
+                await showErrorDialog(
+                  context,
+                  e.toString(),
+                );
               }
             },
             child: const Text('Login'),
@@ -96,3 +107,5 @@ class _LoginViewState extends State<LoginView> {
     );
   }
 }
+
+// this error dialog is used in auth catch
