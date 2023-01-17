@@ -28,6 +28,7 @@ void main() {
         loginRoute: (context) => const LoginView(),
         registeredRoute: (context) => const RegisterView(),
         notesRoute: (context) => const NotesView(),
+        verifyEmailRoute: (context) => const VerifyEmailView(),
       },
     ),
   );
