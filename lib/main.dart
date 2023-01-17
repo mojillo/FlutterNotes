@@ -6,9 +6,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:mynotesapp/view/login_view.dart';
+import 'package:mynotesapp/view/notes_view.dart';
 import 'package:mynotesapp/view/verify_email_view.dart';
 import 'firebase_options.dart';
 import 'package:mynotesapp/view/register_view.dart';
+
 // import 'package:flutter_signin_button/flutter_signin_button.dart';
 // import 'package:mynotesapp/view/landin_view.dart';
 
@@ -29,6 +31,8 @@ void main() {
   );
 }
 
+enum MenuAction { logout }
+
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -45,7 +49,7 @@ class HomePage extends StatelessWidget {
                   .currentUser; // This is the part where email verification is tested for registered users
               if (user != null) {
                 if (user.emailVerified) {
-                  print('Verified 123123123123123123');
+                  return const NotesView();
                 } else {
                   return const VerifyEmailView();
                 }
