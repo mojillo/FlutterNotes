@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 String vowels(String abcd) {
   var i = 0;
   for (i; i < abcd.length; i++) {
