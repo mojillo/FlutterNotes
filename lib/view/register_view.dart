@@ -1,11 +1,8 @@
-// import 'package:firebase_core/firebase_core.dart';
-// ignore_for_file: avoid_print
-
-import 'dart:developer';
-
-import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:mynotesapp/services/auth/auth_exceptions.dart';
+import 'package:flutter/material.dart';
 import 'package:mynotesapp/constants/routes.dart';
+import 'package:mynotesapp/services/auth/auth_service.dart';
 import 'package:mynotesapp/utilities/show_error_dia.dart';
 // import '../firebase_options.dart';
 

@@ -1,15 +1,12 @@
 // ignore_for_file: prefer_const_constructors
 
 // import 'dart:ui';
-
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:mynotesapp/constants/routes.dart';
+import 'package:mynotesapp/services/auth/auth_service.dart';
 import 'package:mynotesapp/view/login_view.dart';
 import 'package:mynotesapp/view/notes_view.dart';
 import 'package:mynotesapp/view/verify_email_view.dart';
-import 'firebase_options.dart';
 import 'package:mynotesapp/view/register_view.dart';
 
 // import 'package:flutter_signin_button/flutter_signin_button.dart';
@@ -34,24 +31,20 @@ void main() {
   );
 }
 
-enum MenuAction { logout }
-
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: Firebase.initializeApp(
-          options: DefaultFirebaseOptions.currentPlatform,
-        ),
+        future: AuthService.firebase().initialize(),
         builder: (context, snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.done:
-              final user = FirebaseAuth.instance
+              final user = AuthService.firebase()
                   .currentUser; // This is the part where email verification is tested for registered users
               if (user != null) {
-                if (user.emailVerified) {
+                if (user.isEmailVerified) {
                   return const NotesView();
                 } else {
                   return const VerifyEmailView();
@@ -59,7 +52,6 @@ class HomePage extends StatelessWidget {
               } else {
                 return const LoginView();
               }
-              return Text('Done');
             default:
               return const CircularProgressIndicator();
           }

@@ -1,9 +1,8 @@
-// ignore_for_file: avoid_print
-
-import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:mynotesapp/constants/routes.dart';
-import '../utilities/show_error_dia.dart';
+import 'package:mynotesapp/services/auth/auth_service.dart';
+import 'package:mynotesapp/utilities/show_error_dia.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -61,15 +60,14 @@ class _LoginViewState extends State<LoginView> {
               final email = _email.text;
               final password = _password.text;
               try {
-                await FirebaseAuth.instance.signInWithEmailAndPassword(
+                AuthService.firebase().logIn(
                   email: email,
                   password: password,
                 );
-                final user = FirebaseAuth.instance.currentUser;
-
+                final user = AuthService.firebase().currentUser;
                 // This if checks if the users email is verified and if not sends to the verify email page
 
-                if (user?.emailVerified ?? false) {
+                if (user?.isEmailVerified ?? false) {
                   Navigator.of(context).pushNamedAndRemoveUntil(
                     notesRoute,
                     (route) => false,
