@@ -3,6 +3,7 @@ import 'package:mynotesapp/services/auth/auth_provider.dart';
 import 'package:mynotesapp/services/auth/firebase_auth_provider.dart';
 
 class AuthService implements Authprovider {
+  // this is dependency injection
   final Authprovider provider;
   const AuthService(this.provider);
 
