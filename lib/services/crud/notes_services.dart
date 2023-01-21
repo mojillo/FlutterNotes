@@ -16,6 +16,7 @@ class NotesService {
 
   static final NotesService _shared = NotesService._sharedInstance();
   NotesService._sharedInstance();
+  factory NotesService() => _shared;
 
   // StreamController creates a stream list of database note with broadcast properties
   // Stream controller throws error if being listened to and reloaded , so we use broadcast which allows us to listen to it with new listeners

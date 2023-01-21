@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mynotesapp/constants/routes.dart';
 import 'package:mynotesapp/services/auth/auth_service.dart';
-import '../enums/menu_action.dart';
-import '../services/crud/notes_services.dart';
+import '../../enums/menu_action.dart';
+import '../../services/crud/notes_services.dart';
 
 class NotesView extends StatefulWidget {
   const NotesView({super.key});
@@ -37,6 +37,10 @@ class _NotesViewState extends State<NotesView> {
         appBar: AppBar(
           title: const Text('My Notes'),
           actions: [
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.add),
+            ),
             PopupMenuButton<MenuAction>(
               onSelected: (value) async {
                 switch (value) {
